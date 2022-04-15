@@ -15,7 +15,7 @@ namespace MuseosArg.Controllers
         {
             var httpclient = new HttpClient();
             var json = await httpclient.GetStringAsync("https://www.cultura.gob.ar/api/v2.0/museos/");
-            var museos = JsonConvert.SerializeObject(json);
+            var museos = JsonConvert.DeserializeObject(json);
             return View(museos);
         }
 
